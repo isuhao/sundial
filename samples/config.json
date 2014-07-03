@@ -1,0 +1,22 @@
+{
+
+"linenoise_sample": {
+	"EXE": "linenoise_sample",
+	"SRC_c": "linenoise_sample.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+},
+
+"rbtree_sample": {
+	"EXE": "rbtree_sample",
+	"SRC_c": "rbtree_sample.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+}
+
+}
+

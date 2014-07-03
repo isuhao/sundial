@@ -1,0 +1,77 @@
+{
+
+"linenoise_test": {
+	"EXE": "linenoise_test",
+	"SRC_c": "linenoise_test.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+},
+
+"rbtree_test": {
+	"EXE": "rbtree_test",
+	"SRC_c": "rbtree_test.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+},
+
+"crc64_test": {
+	"EXE": "crc64_test",
+	"SRC_c": "crc64_test.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+},
+
+"sds_test": {
+	"EXE": "sds_test",
+	"SRC_c": "sds_test.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+},
+
+"endianconv_test": {
+	"EXE": "endianconv_test",
+	"SRC_c": "endianconv_test.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+},                                                                                                  
+
+"intset_test": {
+	"EXE": "intset_test",
+	"SRC_c": "intset_test.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+},
+
+"zipmap_test": {
+	"EXE": "zipmap_test",
+	"SRC_c": "zipmap_test.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+},
+
+"ziplist_test": {
+	"EXE": "ziplist_test",
+	"SRC_c": "ziplist_test.c",
+	"MY_COMMON_FLAGS": "",
+	"MY_CCFLAGS": "-I ../include",
+	"MY_LDFLAGS": "",
+	"MY_LIBS": "-L ../src -l sundial"
+}
+
+
+}
+

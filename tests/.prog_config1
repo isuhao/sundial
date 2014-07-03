@@ -1,0 +1,4 @@
+EXE"="ziplist_test"
+SRC_c"="ziplist_test.c"
+MY_CCFLAGS"="-I ../include"
+MY_LIBS"="-L ../src -l sundial"
