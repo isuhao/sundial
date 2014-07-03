@@ -3,7 +3,13 @@
 *_test_*
 *_smaple
 *_sample_*
+*.a*
+*.so*
+*.sl*
+.progs_config
+.prog_config0
+.prog_config1
 *.mk
-*~
 *.bak
+*~
 
