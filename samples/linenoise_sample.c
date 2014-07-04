@@ -1,17 +1,23 @@
 
+
+#include "sundial/linenoise.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "sundial/linenoise.h"
 
 
-void completion(const char *buf, linenoiseCompletions *lc) {
+void 
+completion(const char *buf, linenoiseCompletions *lc)
+{
     if (buf[0] == 'h') {
         linenoiseAddCompletion(lc,"hello");
         linenoiseAddCompletion(lc,"hello there");
     }
 }
 
-int main(void) {
+
+int 
+main(int argc, char *argv[]) 
+{
     char *line;
 
     linenoiseSetCompletionCallback(completion);
@@ -26,3 +32,4 @@ int main(void) {
     }
     return 0;
 }
+

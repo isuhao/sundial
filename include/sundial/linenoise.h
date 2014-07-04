@@ -41,6 +41,7 @@
 
 
 #include "sundial/sundial.h"
+#include <stddef.h>
 
 
 ENV_CPP(extern "C" {)

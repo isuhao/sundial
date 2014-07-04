@@ -21,9 +21,12 @@
   linux/lib/rbtree.c
 */
 
+
 #include "sundial/rbtree.h"
 
-static void __rb_rotate_left(struct rb_node *node, struct rb_root *root)
+
+static void 
+__rb_rotate_left(struct rb_node *node, struct rb_root *root)
 {
     struct rb_node *right = node->rb_right;
     struct rb_node *parent = rb_parent(node);
@@ -46,7 +49,8 @@ static void __rb_rotate_left(struct rb_node *node, struct rb_root *root)
     rb_set_parent(node, right);
 }
 
-static void __rb_rotate_right(struct rb_node *node, struct rb_root *root)
+static void 
+__rb_rotate_right(struct rb_node *node, struct rb_root *root)
 {
     struct rb_node *left = node->rb_left;
     struct rb_node *parent = rb_parent(node);
@@ -69,7 +73,8 @@ static void __rb_rotate_right(struct rb_node *node, struct rb_root *root)
     rb_set_parent(node, left);
 }
 
-void rb_insert_color(struct rb_node *node, struct rb_root *root)
+void 
+rb_insert_color(struct rb_node *node, struct rb_root *root)
 {
     struct rb_node *parent, *gparent;
 
@@ -134,7 +139,8 @@ void rb_insert_color(struct rb_node *node, struct rb_root *root)
     rb_set_black(root->rb_node);
 }
 
-static void __rb_erase_color(struct rb_node *node, struct rb_node *parent,
+static void 
+__rb_erase_color(struct rb_node *node, struct rb_node *parent,
                  struct rb_root *root)
 {
     struct rb_node *other;
@@ -214,7 +220,8 @@ static void __rb_erase_color(struct rb_node *node, struct rb_node *parent,
         rb_set_black(node);
 }
 
-void rb_erase(struct rb_node *node, struct rb_root *root)
+void 
+rb_erase(struct rb_node *node, struct rb_root *root)
 {
     struct rb_node *child, *parent;
     int color;
@@ -281,7 +288,8 @@ void rb_erase(struct rb_node *node, struct rb_root *root)
         __rb_erase_color(child, parent, root);
 }
 
-static void rb_augment_path(struct rb_node *node, rb_augment_f func, void *data)
+static void 
+rb_augment_path(struct rb_node *node, rb_augment_f func, void *data)
 {
     struct rb_node *parent;
 
@@ -304,7 +312,8 @@ up:
  * after inserting @node into the tree, update the tree to account for
  * both the new entry and any damage done by rebalance
  */
-void rb_augment_insert(struct rb_node *node, rb_augment_f func, void *data)
+void 
+rb_augment_insert(struct rb_node *node, rb_augment_f func, void *data)
 {
     if (node->rb_left)
         node = node->rb_left;
@@ -318,7 +327,8 @@ void rb_augment_insert(struct rb_node *node, rb_augment_f func, void *data)
  * before removing the node, find the deepest node on the rebalance path
  * that will still be there after @node gets removed
  */
-struct rb_node *rb_augment_erase_begin(struct rb_node *node)
+struct rb_node *
+rb_augment_erase_begin(struct rb_node *node)
 {
     struct rb_node *deepest;
 
@@ -343,7 +353,8 @@ struct rb_node *rb_augment_erase_begin(struct rb_node *node)
  * after removal, update the tree to account for the removed entry
  * and any rebalance damage.
  */
-void rb_augment_erase_end(struct rb_node *node, rb_augment_f func, void *data)
+void 
+rb_augment_erase_end(struct rb_node *node, rb_augment_f func, void *data)
 {
     if (node)
         rb_augment_path(node, func, data);
@@ -352,7 +363,8 @@ void rb_augment_erase_end(struct rb_node *node, rb_augment_f func, void *data)
 /*
  * This function returns the first node (in sort order) of the tree.
  */
-struct rb_node *rb_first(const struct rb_root *root)
+struct rb_node *
+rb_first(const struct rb_root *root)
 {
     struct rb_node  *n;
 
@@ -364,7 +376,8 @@ struct rb_node *rb_first(const struct rb_root *root)
     return n;
 }
 
-struct rb_node *rb_last(const struct rb_root *root)
+struct rb_node *
+rb_last(const struct rb_root *root)
 {
     struct rb_node  *n;
 
@@ -376,7 +389,8 @@ struct rb_node *rb_last(const struct rb_root *root)
     return n;
 }
 
-struct rb_node *rb_next(const struct rb_node *node)
+struct rb_node *
+rb_next(const struct rb_node *node)
 {
     struct rb_node *parent;
 
@@ -404,7 +418,8 @@ struct rb_node *rb_next(const struct rb_node *node)
     return parent;
 }
 
-struct rb_node *rb_prev(const struct rb_node *node)
+struct rb_node *
+rb_prev(const struct rb_node *node)
 {
     struct rb_node *parent;
 
@@ -428,7 +443,8 @@ struct rb_node *rb_prev(const struct rb_node *node)
     return parent;
 }
 
-void rb_replace_node(struct rb_node *victim, struct rb_node *new,
+void 
+rb_replace_node(struct rb_node *victim, struct rb_node *new,
              struct rb_root *root)
 {
     struct rb_node *parent = rb_parent(victim);

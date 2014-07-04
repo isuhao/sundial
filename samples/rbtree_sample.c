@@ -1,9 +1,11 @@
 
+
 #include "sundial/rbtree.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
+
 
 struct mynode {
     struct rb_node node;
@@ -12,7 +14,9 @@ struct mynode {
 
 struct rb_root mytree = RB_ROOT;
 
-struct mynode * my_search(struct rb_root *root, char *string)
+
+struct mynode * 
+my_search(struct rb_root *root, char *string)
 {
     struct rb_node *node = root->rb_node;
 
@@ -32,7 +36,8 @@ struct mynode * my_search(struct rb_root *root, char *string)
     return NULL;
 }
 
-int my_insert(struct rb_root *root, struct mynode *data)
+int 
+my_insert(struct rb_root *root, struct mynode *data)
 {
     struct rb_node **new = &(root->rb_node), *parent = NULL;
 
@@ -57,7 +62,8 @@ int my_insert(struct rb_root *root, struct mynode *data)
     return 1;
 }
 
-void my_free(struct mynode *node)
+void 
+my_free(struct mynode *node)
 {
     if (node != NULL) {
         if (node->string != NULL) {
@@ -71,7 +77,9 @@ void my_free(struct mynode *node)
 
 #define NUM_NODES 32
 
-int main()
+
+int 
+main(int argc, char *argv[])
 {
     struct mynode *mn[NUM_NODES];
 
@@ -84,12 +92,13 @@ int main()
         sprintf(mn[i]->string, "%d", i);
         my_insert(&mytree, mn[i]);
     }
-    
+
     /* *search */
     struct rb_node *node;
     printf("search all nodes: \n");
-    for (node = rb_first(&mytree); node; node = rb_next(node))
+    for (node = rb_first(&mytree); node; node = rb_next(node)) {
         printf("key = %s\n", rb_entry(node, struct mynode, node)->string);
+    }
 
     /* *delete */
     printf("delete node 20: \n");
@@ -117,8 +126,10 @@ int main()
 
     /* *search again*/
     printf("search again:\n");
-    for (node = rb_first(&mytree); node; node = rb_next(node))
+    for (node = rb_first(&mytree); node; node = rb_next(node)) {
         printf("key = %s\n", rb_entry(node, struct mynode, node)->string);
+    }
+
     return 0;
 }
 

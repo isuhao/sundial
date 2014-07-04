@@ -1,6 +1,8 @@
+
+
+#include "sundial/linenoise.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "sundial/linenoise.h"
 
 
 void completion(const char *buf, linenoiseCompletions *lc) {

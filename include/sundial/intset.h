@@ -70,6 +70,7 @@ SUNDIAL_API uint8_t intsetSearch(intset *is, int64_t value, uint32_t *pos);
 #define INTSET_ENC_INT32 (sizeof(int32_t))
 #define INTSET_ENC_INT64 (sizeof(int64_t))
 
+
 ENV_CPP(})
 
 

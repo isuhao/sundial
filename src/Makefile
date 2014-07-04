@@ -39,33 +39,40 @@ MY_COMMON_FLAGS=-std=c99 -I $(SUNDIAL_HEADER_DIR)
 MY_CFLAGS=-DENDIAN_LITTLE=1
 
 SUNDIAL_HEADERS= \
-	$(SUNDIAL_HEADER_DIR)/adlist.h \
-	$(SUNDIAL_HEADER_DIR)/ae.h \
-	$(SUNDIAL_HEADER_DIR)/arc4random.h \
-	$(SUNDIAL_HEADER_DIR)/config.h \
-	$(SUNDIAL_HEADER_DIR)/crc64.h \
-	$(SUNDIAL_HEADER_DIR)/daemon.h \
-	$(SUNDIAL_HEADER_DIR)/dict.h \
-	$(SUNDIAL_HEADER_DIR)/endianconv.h \
-	$(SUNDIAL_HEADER_DIR)/fmacros.h \
-	$(SUNDIAL_HEADER_DIR)/http-parser.h \
-	$(SUNDIAL_HEADER_DIR)/intset.h \
-	$(SUNDIAL_HEADER_DIR)/jenkins_hash.h \
-	$(SUNDIAL_HEADER_DIR)/linenoise.h \
-	$(SUNDIAL_HEADER_DIR)/lzf.h \
-	$(SUNDIAL_HEADER_DIR)/lzfP.h \
-	$(SUNDIAL_HEADER_DIR)/murmur3_hash.h \
-	$(SUNDIAL_HEADER_DIR)/rand.h \
-	$(SUNDIAL_HEADER_DIR)/rbtree.h \
-	$(SUNDIAL_HEADER_DIR)/sds.h \
-	$(SUNDIAL_HEADER_DIR)/splaytree.h \
-	$(SUNDIAL_HEADER_DIR)/testhelp.h \
-	$(SUNDIAL_HEADER_DIR)/util.h \
-	$(SUNDIAL_HEADER_DIR)/uuid.h
+	$(SUNDIAL_HEADER_DIR)/sundial/adlist.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/ae.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/arc4random.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/config.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/crc64.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/daemon.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/dict.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/endianconv.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/fmacros.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/http-parser.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/internal \
+	$(SUNDIAL_HEADER_DIR)/sundial/intset.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/jenkins_hash.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/linenoise.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/lzf.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/lzfP.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/murmur3_hash.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/rand.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/rbtree.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/regex.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/sds.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/splaytree.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/sundial.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/testhelp.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/util.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/uuid.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/ziplist.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/zipmap.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/zmalloc.h
+
 
 SUNDIAL_INTERNAL_HADERS= \
-	$(SUNDIAL_HEADER_DIR)/internal/regex_config.h \
-	$(SUNDIAL_HEADER_DIR)/internal/regex_internal.h
+	$(SUNDIAL_HEADER_DIR)/sundial/internal/regex_config.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/internal/regex_internal.h
 
 
 all $(EXE): static_lib
@@ -82,14 +89,14 @@ sample: $(EXE) ../tools/sundial_run.sh
 .PHONY: install uninstall
 
 install: $(EXE) $(SUNDIAL_HEADERS) $(SUNDIAL_INTERNAL_HADERS)
-	mkdir -p $(DESTDIR)/usr/local/include/sundail
-	mkdir -p $(DESTDIR)/usr/local/include/sundail/internal
-	install -p $(INSTALL_FLAGS) -m 0644 -o root $(SUNDIAL_HEADERS) $(DESTDIR)/usr/local/include/sundail
-	install -p $(INSTALL_FLAGS) -m 0644 -o root $(SUNDIAL_INTERNAL_HADERS) $(DESTDIR)/usr/local/include/sundail/internal
+	mkdir -p $(DESTDIR)/usr/local/include/sundial/internal
+	mkdir -p $(DESTDIR)/usr/local/lib
 	install -p $(INSTALL_FLAGS) -m 0644 -o root $(EXE) $(DESTDIR)/usr/local/lib
+	install -p $(INSTALL_FLAGS) -m 0644 -o root $(SUNDIAL_INTERNAL_HADERS) $(DESTDIR)/usr/local/include/sundial/internal
+	install -c -p $(INSTALL_FLAGS) -m 0644 -o root $(SUNDIAL_HEADERS) $(DESTDIR)/usr/local/include/sundial
 
 uninstall:
-	rm -rf $(DESTDIR)/usr/local/include/sundail
+	rm -rf $(DESTDIR)/usr/local/include/sundial
 	rm -rf $(DESTDIR)/usr/local/lib/$(EXE)
 
 
