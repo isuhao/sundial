@@ -13,6 +13,7 @@ distclean:
 	rm -f src/*.o src/*.a src/*.so src/*.sl src/*.a_* src/*.so_* src/*.sl_*
 	rm -f samples/*.o samples/*_sample samples/*_sample_*
 	rm -f tests/*.o tests/*_test tests/*_test_*
-	find . -name \*~ -type f | xargs rm -f
-	find . -name \*.bak -type f | xargs rm -f
+	find . -name \*~ -type f |xargs rm -f
+	find . -name \*.bak -type f |xargs rm -f
+	find . -name .prog*_config* -type f |xargs rm -f
 
