@@ -20,5 +20,8 @@ MY_LIBS= -L ../src -l sundial
 
 all: c_bin
 
+test: all
+	$(EXE)
+
 include ../src/Makefile.inc
 

@@ -36,7 +36,7 @@ SRC_c= \
 SUNDIAL_HEADER_DIR= ../include
 
 MY_COMMON_FLAGS=-std=c99 -I $(SUNDIAL_HEADER_DIR)
-MY_CFLAGS=-DENDIAN_LITTLE=1
+MY_CCFLAGS=-DENDIAN_LITTLE=1
 
 SUNDIAL_HEADERS= \
 	$(SUNDIAL_HEADER_DIR)/sundial/adlist.h \
@@ -93,7 +93,7 @@ install: $(EXE) $(SUNDIAL_HEADERS) $(SUNDIAL_INTERNAL_HADERS)
 	mkdir -p $(DESTDIR)/usr/local/lib
 	install -p $(INSTALL_FLAGS) -m 0644 -o root $(EXE) $(DESTDIR)/usr/local/lib
 	install -p $(INSTALL_FLAGS) -m 0644 -o root $(SUNDIAL_INTERNAL_HADERS) $(DESTDIR)/usr/local/include/sundial/internal
-	install -c -p $(INSTALL_FLAGS) -m 0644 -o root $(SUNDIAL_HEADERS) $(DESTDIR)/usr/local/include/sundial
+	install -c -p $(INSTALL_FLAGS) -m 0644 -o root $(SUNDIAL_HEADERS) $(DESTDIR)/usr/local/include/sundial 2>/dev/null
 
 uninstall:
 	rm -rf $(DESTDIR)/usr/local/include/sundial
