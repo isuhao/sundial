@@ -62,5 +62,5 @@ ENV_CPP(extern "C" {)
 ENV_CPP(})
 
 
-#endif /* SUNDIAL_FMACRO_H_INCLUDED_¡¡*/
+#endif /* SUNDIAL_FMACRO_H_INCLUDED_ */
 

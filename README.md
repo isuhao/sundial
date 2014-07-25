@@ -51,7 +51,7 @@ Copyright and License
 
 This Software is licensed under the BSD license.
 
-Copyright (c) 2012 by GuiQuan "guiquanz" Zhang (张桂权) <guiqzhang@gmail.com>
+Copyright (c) 2012 - present by GuiQuan "guiquanz" Zhang (张桂权) <guiqzhang@gmail.com>
 
 Permission to use, copy, modify, and distribute this software and
 its documentation for any purpose and without fee is hereby

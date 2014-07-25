@@ -10,6 +10,7 @@ EXE= libsundial.$(PLATFORM_STATIC_EXT)
 SRC_c= \
 	adlist.c \
 	ae.c \
+	anet.c \
 	arc4random.c \
 	crc64.c \
 	daemon.c \
@@ -41,6 +42,7 @@ MY_CCFLAGS=-DENDIAN_LITTLE=1
 SUNDIAL_HEADERS= \
 	$(SUNDIAL_HEADER_DIR)/sundial/adlist.h \
 	$(SUNDIAL_HEADER_DIR)/sundial/ae.h \
+	$(SUNDIAL_HEADER_DIR)/sundial/anet.h \
 	$(SUNDIAL_HEADER_DIR)/sundial/arc4random.h \
 	$(SUNDIAL_HEADER_DIR)/sundial/config.h \
 	$(SUNDIAL_HEADER_DIR)/sundial/crc64.h \

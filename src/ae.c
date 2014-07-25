@@ -31,6 +31,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+
+#include "sundial/config.h"
+#include "sundial/ae.h"
+#include "sundial/zmalloc.h"
 #include <stdio.h>
 #include <sys/time.h>
 #include <sys/types.h>
@@ -41,9 +45,6 @@
 #include <time.h>
 #include <errno.h>
 
-#include "sundial/ae.h"
-#include "sundial/zmalloc.h"
-#include "sundial/config.h"
 
 /* Include the best multiplexing layer supported by this system.
  * The following should be ordered by performances, descending. */

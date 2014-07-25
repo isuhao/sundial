@@ -5,7 +5,7 @@
 
 include ../build_config.mk
 
-EXE= rbtree_sample
+EXE= ./rbtree_sample
 
 SRC_c= rbtree_sample.c
 
