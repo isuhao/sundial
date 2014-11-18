@@ -16,6 +16,11 @@ CXXFLAGS= $(COMMON_FLAGS) $(PLATFORM_CXXFLAGS) $(MY_CXXFLAGS)
 LDFLAGS= $(PLATFORM_SHARED_LDFLAGS) $(PLATFORM_LDFLAGS) $(MY_LDFLAGS)
 LIBS= $(PLATFORM_LIBS) $(MY_LIBS)
 
+cc_bin_OBJS= $(cc_bin_SRC_cc:.cc=.o) $(c_bin_SRC_c:.c=.o)
+c_bin_OBJS= $(c_bin_SRC_c:.c=.o)
+
+OBJS= $(SRC_cc:.cc=.o) $(SRC_c:.c=.o)
+OBJS= $(SRC_cc:.cc=.o) $(SRC_c:.c=.o)
 OBJS= $(SRC_cc:.cc=.o) $(SRC_c:.c=.o)
 
 .SUFFIXES: .c .cc .h .o
